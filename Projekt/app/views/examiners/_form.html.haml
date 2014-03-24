@@ -1,0 +1,16 @@
+-# Form for creating a new Organisation
+= form_for(@examiner) do |f|
+  - if @examiner.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@examiner.errors.count, "error")
+        prohibited this examiner from being saved:
+      %ul
+        - @examiner.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :orgranization_unit
+    %br/
+    = f.text_field :orgranization_unit
+  .actions
+    = f.submit

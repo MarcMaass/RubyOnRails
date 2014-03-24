@@ -1,0 +1,12 @@
+class Examiner < ActiveRecord::Base
+  
+  # inheritance from athlete
+  inherits_from :athlete
+  # associations
+  has_and_belongs_to_many :sports
+  has_many :performances
+  # foreign keys
+  belongs_to :organization_unit
+  # attr_accessible :title, :body
+  validates :organization_unit_id, :presence => true
+end

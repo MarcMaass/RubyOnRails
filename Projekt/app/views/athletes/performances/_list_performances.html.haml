@@ -1,0 +1,42 @@
+-# This partial is to list the performances for the athletes
+- unless @performances.empty?
+  - @performances.each do |category, performances_of_category|
+    %article
+      %h3= "#{category}: #{maxima[category].sign}"
+      %table{:"id"=>"hor-minimalist-a"}
+        %thead
+          %tr
+            %th{:"scope"=>"col"} Disziplin
+            %th{:"scope"=>"col"} Datum
+            %th{:"scope"=>"col"} Prüfer
+            %th{:"scope"=>"col"} Wert
+            %th{:"scope"=>"col"} Punkte
+            %th{:"scope"=>"col"} Leistung
+        %tbody
+          - (performances_of_category.sort_by {|performance, medal| -medal[:points]}).each do |performance_to_medal|
+            %tr
+              %td= performance_to_medal[0].discipline.name
+              %td= l(performance_to_medal[0].date)
+              %td= performance_to_medal[0].examiner.full_name
+              %td= convert_value(performance_to_medal[0].value, performance_to_medal[0].discipline.unit)
+              %td= performance_to_medal[1].points
+              %td= performance_to_medal[1].sign
+  - unless @rejected.empty?
+    %h3 Abgelehnte Leistungen
+    %table{:"id"=>"hor-minimalist-a"}
+      %thead
+        %tr
+          %th{:"scope"=>"col"} Disziplin
+          %th{:"scope"=>"col"} Datum
+          %th{:"scope"=>"col"} Prüfer
+          %th{:"scope"=>"col"} Wert
+      %tbody
+        - @rejected.each do |rej|
+          %tr
+            %td= rej.discipline.name
+            %td= l(rej.date)
+            %td= rej.examiner.full_name
+            %td= convert_value(rej.value, rej.discipline.unit)
+  = tell_complete_result_and_next(maxima)
+- else
+  %p Sie haben in diesem Jahr noch keine Leistungen erbracht!

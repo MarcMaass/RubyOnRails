@@ -1,0 +1,8 @@
+%div{:id => "options_#{member.id}"}
+  -# Form for making a Athlete to an Examiner
+  %h5 Ernennung zum Prüfer 
+  = form_for :user, :url => district_chiefs_upgrade_path(member), :method => :put, :remote => true do |f|
+    .field
+      = f.label :organization_unit, 'Verein auswählen:'
+      = f.collection_select(:organization_unit, member.organization_units, :id, :name)      
+      = f.submit 'zum Prüfer ernennen', :confirm => 'Sind Sie sicher?'

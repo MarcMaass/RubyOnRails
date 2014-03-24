@@ -1,0 +1,5 @@
+%table{:id => member.id}
+  %tr
+    %td= member.email
+    %td= member.full_name
+    %td{:class => 'type'}= write_type(member.type)

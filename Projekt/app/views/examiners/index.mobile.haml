@@ -1,0 +1,17 @@
+-# Render Nav for Mobile
+= renderHederNavIfLoggedIn 
+-# Show Mainmenu
+%div{:"data-role" => "content"}
+  -# List of links
+  %ul{:"data-role"=>"listview", :"data-divider-theme"=>"a", :"data-inset"=>"true"}
+    %li{:"data-role"=>"list-divider", :"role"=>"heading"}
+      Hauptmenü
+    -# String and Image because JQ Mobile Container
+    %li{:"data-theme"=>"a"}
+      = link_to image_tag("erfassung.png") + "<span class=\"listtext\">Leistungen<br/>Erfassen</span>".html_safe,index_new_examiners_performances_path, {:"rel"=>"external"}
+    %li{:"data-theme"=>"a"}
+      = link_to image_tag("editieren.png") + "<span class=\"listtext\">Leistungen<br/>Bearbeiten</span>".html_safe, edit_examiners_performances_path, {:"rel"=>"external"}
+    %li{:"data-theme"=>"a"}
+      = link_to image_tag("help.png") + "<span class=\"listtext\">Hilfe</span>".html_safe, ''
+    %li{:"data-theme"=>"a"}
+      = link_to image_tag("impressum.png") + "<span class=\"listtext\">Hilfe<br/>Erhalten</span>".html_safe, ''

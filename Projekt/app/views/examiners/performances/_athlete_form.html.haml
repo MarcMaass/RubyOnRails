@@ -1,0 +1,9 @@
+-# Insert a new Athlete
+%br/
+= fields_for :athlete do |a|
+  .field
+    -# Searching for a Athlete
+    = a.autocomplete_field '0', autocomplete_athlete_email_path
+    -# Value Field for Perfromance
+    = getUnitFormElements unit_id
+    = link_to image_tag("deletehtmlmini.png"), '#', 'data-remove' => 'athlete'

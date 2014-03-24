@@ -1,0 +1,14 @@
+%ul
+  %li.first= link_to 'Meine Daten', profile_district_chiefs_path
+%ul
+  %li= link_to 'Mitgliederverwaltung', district_chiefs_member_management_path
+%ul
+  %li
+    .nolink Vereinsverwaltung
+    %span
+      = link_to 'Vereinsindex', district_chiefs_organization_units_path
+      = link_to 'Verein hinzufügen', new_district_chiefs_organization_unit_path
+%ul
+  %li= link_to 'Leistungsverwaltung', district_chiefs_performances_path
+%ul
+  %li= link_to 'Leistungsdaten', disciplines_path

@@ -1,0 +1,19 @@
+.edit_user
+  = form_for :user, :url => update_location_athletes_path, :method => :put, :remote => true do |f|
+    .field
+      = f.label :street, 'Straße, Hausnummer:'
+      = f.text_field :street 
+      = f.text_field :house_number
+      %br/
+      = fields_for l do |loc|
+        = f.label :location, 'PLZ, Ort:'
+        = loc.autocomplete_field :postal_code_and_name, autocomplete_location_path 
+      %br/
+      = f.label :phone, 'Telefon:'
+      = f.text_field :phone
+      %br/
+      = f.label :email, 'E-Mail:'
+      = f.email_field :email
+    .actions
+      = f.submit 'Speichern'
+      = link_to image_tag('abbrechen.png'), '', 'data-edit' => 'abort'

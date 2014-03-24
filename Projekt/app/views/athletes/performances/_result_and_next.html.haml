@@ -1,0 +1,15 @@
+-# Show Perfromances for Athletes he need for DSOB-Sign
+- if result
+  %article
+    %h3 Gesamtleistung
+    -# Filter medal
+    %h5= "#{result[:medal]} (#{result[:points]} Punkte)"
+    %h5 Mindestleistung für nächste Medaille
+    %p
+      - possible.each do |medal_string, amount|
+        = "#{amount} x #{medal_string.camelcase}"
+        %br/
+- else
+  .notice
+    %p
+      Es müssen Leistungen in allen Kategorien erbracht werden, um Ihre Gesamtleistung einzusehen!

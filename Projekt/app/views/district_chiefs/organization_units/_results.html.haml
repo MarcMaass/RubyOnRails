@@ -1,0 +1,12 @@
+-# Show result from searching Organizationunit
+.results
+  %h3 Suchergebnisse
+  - unless @organization_units.empty?
+    = link_to '- Suchergebnisse löschen', '#', 'data-remove' => 'organization_unit'
+    - @organization_units.each do |orga_unit|
+      %table
+        %tr
+          %td= orga_unit.name
+          %td= link_to 'löschen', [:district_chiefs, orga_unit], :method => :delete, :remote => :true, :confirm => 'Sind Sie sicher?'
+  - else
+    %p Es konnten keine Ergebnisse gefunden werden!

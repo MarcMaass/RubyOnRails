@@ -1,0 +1,14 @@
+-# Main for Login View
+#login_wrapper
+  %h1 Login Sportler
+  -# Wrong Login
+  = render :partial => 'error'
+  -# Corect Login
+  = render :partial => 'notice'
+  = form_for :login, :url => '/login' do |f|
+    = render partial: 'form', :locals => {:f => f}
+  .button
+    = link_to "Mitglied werden!", register_path
+  .button 
+    = link_to "Login f\u00fcr Mitglieder des DOSB", dosb_url
+ 

@@ -1,0 +1,4 @@
+-# Show Error if Login was wrong
+- if not flash.now[:error].nil?
+  #error_login  
+    %p= flash.now[:error]

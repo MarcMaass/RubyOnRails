@@ -1,0 +1,27 @@
+-# Show Athletes Date and Links to edit them
+.content
+  %h1 Meine Daten
+  .picture
+    = image_tag @athlete.picture.url(:small)
+  .data
+    %h1= @athlete.full_name
+    .field
+      Geburtsdatum: #{I18n.l @athlete.birthday}
+    %h4 Kontaktdaten
+    .change_contact
+      = link_to 'change_adress', :remote => true
+      #{@athlete.street} #{@athlete.house_number}
+      %br/
+      #{@athlete.location.postal_code} #{@athlete.location.name} 
+      = mail_to @athlete.email, 'Anschreiben'
+      %br/
+    - if @athlete.phone
+      = @athlete.phone
+    %h3 Mitgliedschaften
+    .change_orga_units
+      = link_to 'change_orga_units', :remote => true
+      = print_organization_units
+    .change_password
+      = link_to 'change_password', :remote => true
+= link_to 'Bearbeiten', edit_athlete_path(@athlete) |
+= link_to 'zurück', athletes_path

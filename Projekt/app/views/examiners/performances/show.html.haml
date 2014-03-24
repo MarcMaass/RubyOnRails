@@ -1,0 +1,16 @@
+-# From for searching Athlete performances
+%h1 Leistungen editieren
+.notice
+  %p
+    Hier können Sie Leistungen, die von Ihnen eingetragen wurden editieren.
+= form_for :search_performance, :url => search_examiners_performances_path, :method => :get, :remote => true  do |f|
+  .field
+    = f.autocomplete_field :email, autocomplete_athlete_email_path
+  .field
+    = f.date_select :date, :start_year => Date.today.year,:end_year => Date.today.years_ago(20).year, :include_blank => true, :default => :blank
+  .field
+    = f.autocomplete_field :sport_facility, autocomplete_sport_faci_name_path
+  .actions
+    = f.submit 'suchen'
+    = link_to 'Suchergebnisse löschen', '#', 'data-remove' => 'search'
+.results

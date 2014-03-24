@@ -1,0 +1,50 @@
+%h1 Registierung
+.notice
+  %p
+    Felder mit * sind Pflichtfelder. 
+    %br/
+    Das Passwort muss mindestens 8 Zeichen lang sein.
+= simple_form_for @athlete, :url => register_path(@athlete) , :html => { :multipart => true }, :defaults => {:required => false, :wrapper => false, :class => false} do |f|
+  %h4 Anmeldedaten
+  .field
+    = f.input :email, :as => :email, :label => 'E-Mail:*'
+  .field
+    = f.input :password, :as => :password, :label => 'Passwort:*'
+  .field
+    = f.input :password_confirmation, :as => :password, :label => 'Passwortbestätigung:*'
+  %h4 Personendaten
+  .field
+    = f.input :last_name, :label => 'Nachname:*'
+  .field
+    = f.input :first_name, :label => 'Vorname:*'
+  .field
+    = f.input :birthday, :as => :date, :label => "Geburtsdatum:*", :start_year => (Time.now.year - 110), :end_year => Time.now.year
+  .field
+    = f.label :gender, 'Geschlecht:*'
+    = f.collection_radio_buttons :gender_id, [[gender.first.id, gender.first.sex] ,[gender.last.id, gender.last.sex]], :first, :last
+  %h4 Adressdaten
+  .field
+    = f.input :street, :label => 'Straße:*'
+  .field
+    = f.input :house_number, :label => 'Hausnummer:*'
+  .field
+    = f.input :location,:url => autocomplete_location_path, :as => :autocomplete, :label => 'PLZ, Ort:*', :input_html => { :value => (f.object.postal_code_and_name if f.object) } 
+  %h4 Optionales:
+  .field
+    = f.input :picture, :as => :file, :label => 'Profilbild:'
+  .field
+    = f.label :phone, "Telefonnummer:"
+    = f.text_field :phone
+  %h4 Vereine
+  .notice
+    %p Sie können bis zu 5 Organisationseinheiten angeben.
+  = fields_for :organization_units do |o|
+    .button
+      = link_to '+ Verein', '#', :id => 'add_orga_unit'
+    .field
+      = o.autocomplete_field '0', autocomplete_orga_unit_name_path
+      .button
+        = link_to '- Verein', '#', :class => 'del_orga_unit'
+  .actions
+    = f.submit 'Abschicken'
+= link_to 'zurück', root_url

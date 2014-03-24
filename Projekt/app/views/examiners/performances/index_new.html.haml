@@ -1,0 +1,9 @@
+-# Show all Sportcategories
+%h1 Neue Leistung eintragen
+.notice
+  %p Tragen Sie hier Leistungen von Sportlern ein.
+.performance_choice
+  %h3 Kategorie
+  -# List all Sport Categories
+  - CATEGORIES.each do |category, category_ger|
+    = link_to image_tag(category_ger+"Html.png"), new_examiners_performances_path(category)

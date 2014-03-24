@@ -1,0 +1,10 @@
+-# Main for MobileLogin View
+%div{:"data-role" => "header"}
+  %h1 Login Mobile
+%div{:"data-role" => "content"}
+  .login_pic
+    = image_tag("mobLogo.png")  
+  = form_for :login, :url => '/login' do |f|
+    = render :partial => 'form', :locals => { :f => f }
+
+ 

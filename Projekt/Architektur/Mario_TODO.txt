@@ -1,0 +1,28 @@
+## Hier kann man quasi Tickets für mich erstellen:
+
+layouts weiter bauen
+
+# aktuelle Tickets:
+
+ -
+ 
+# abgeschlossene Tickets:
+
+####
+Datum: 28.12.2012
+Abgeschlossen: 02.01.2012
+von: mir selbst
+Examiners:
+	Vererbung einbauen
+DistrictChief:
+	Vererbung einbauen
+####
+
+####
+Datum: 28.12.2012
+Abgeschlossen: 02.01.2012
+von: mir selbst
+Athleten:
+	Korrekte Formatierung: E-Mail, Telefon
+	Mindestalter: 6 Jahre
+####

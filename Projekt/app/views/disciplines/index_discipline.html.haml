@@ -1,0 +1,10 @@
+-# Form for searching Disciplines
+%h1 Leistungsdaten
+= form_for :discipline, :url => show_disciplines_path, :method => :get, :remote => true do |f|
+  %h5 Bitte gewünschte Disziplin wählen
+  .field
+    = f.collection_select(:name, @disciplines, :name, :get_discipline_with_gender)
+  .actions
+    = f.submit 'ansehen'
+-# Insert searching results in Class
+.results

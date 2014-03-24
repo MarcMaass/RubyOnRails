@@ -1,0 +1,10 @@
+-# SecondStep Mutliform for add x Athletes
+%fieldset{:"class"=>"ui-grid-a"}
+  %div{:"class"=>"ui-block-a"}
+    = link_to 'Sportler', athlete_form_examiners_performances_path,  {:"data-mini"=>"true",:"data-theme"=>"a", :"data-role"=>"button", :"data-icon"=>"plus", :remote => true, :'data-add' => 'athlete'}
+  %div{:"class"=>"ui-block-b"}
+    = link_to 'Alle', '#',  {:"data-mini"=>"true",:"data-theme"=>"a", :"data-role"=>"button", :"data-icon"=>"minus", :"data-remove"=>"all_athletes"}
+-# Class where added Athlete would be insert
+.athletes_performances
+
+

@@ -1,0 +1,8 @@
+-# Show Perfromnacedata
+%h1 Leistungsdaten
+.notice
+  %p Wählen Sie hier eine Kategorie aus um die Leistungsdaten einsehen zu können.
+.performance_choice
+  -# Links to Sportcategories
+  - CATEGORIES.each do |category, category_ger|
+    = link_to image_tag(category_ger+"Html.png"), index_disciplines_path(category) 

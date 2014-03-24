@@ -1,0 +1,3 @@
+:plain
+  $('#performance_#{@performance.id}').addClass('#{escape_javascript(inspected_class(@performance.inspected))}');
+  $('.options_#{@performance.id}').text('#{escape_javascript(inspected_text(@performance.inspected))}')

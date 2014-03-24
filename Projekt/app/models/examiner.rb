@@ -1,0 +1,2 @@
+class Examiner < Athlete
+end

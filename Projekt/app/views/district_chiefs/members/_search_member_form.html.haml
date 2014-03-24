@@ -1,0 +1,20 @@
+-# Form for searching a DOSB Member
+= form_for :member, :url => district_chiefs_search_member_path, :method => :get, :remote => :true, :html => {:id => 'search_member'} do |f|
+  .field
+    -# Seaching for Member via Ajax
+    = f.label :email, 'E-Mail:'
+    = f.autocomplete_field :email, autocomplete_athlete_email_path
+  .field
+    = f.label :email, 'Nachname, Vorname:'
+    = f.text_field :last_name
+    = f.text_field :first_name
+  .field
+    = f.label :email, 'Straße, Hausnummer:'
+    = f.text_field :street
+    = f.text_field :house_number
+  .field
+    -# Seaching for Location via Ajax
+    = f.label :email, 'PLZ, Ort:'
+    = f.autocomplete_field :location, autocomplete_location_path
+  .actions
+    = f.submit 'suchen'

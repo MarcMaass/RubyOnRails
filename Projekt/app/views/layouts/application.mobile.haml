@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+%html
+  %head
+    %title Deutsches Sportabzeichen Mobile
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    -#= stylesheet_link_tag "mobile.css"
+    = javascript_include_tag "application"
+    = stylesheet_link_tag "application_mobile"
+    = stylesheet_link_tag "mobile"
+    = stylesheet_link_tag "jquery.mobile-1.2.0.min.css"
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+  %body
+    %div{:"data-role"=>"page"}
+      = yield

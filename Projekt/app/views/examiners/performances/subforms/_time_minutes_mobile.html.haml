@@ -1,0 +1,10 @@
+-# Show Value Field
+= fields_for :athlete_performance do |ap|
+  %span
+    %fieldset{:"class"=>"ui-grid-a"}
+      %div{:"class"=>"ui-block-a"}
+        Zeit (Min:Sek)
+        = ap.text_field 'm0', {:"pattern"=>"[0-9]*",:"type"=>"number"}
+      %div{:"class"=>"ui-block-b"}
+        %br
+        = ap.text_field 's0', {:"pattern"=>"[0-9]*",:"type"=>"number"}

@@ -1,0 +1,7 @@
+-# Show link to add a new Sportfacility
+.sport_facilities
+  - @organization_unit.sport_facilities.each do |sport_facility|
+    .sport_facility
+      .textstyldata
+        = link_to sport_facility.name, examiners_show_sport_facility_path(sport_facility.id), :remote => true, 'data-show' => 'sport_facility_' + sport_facility.id.to_s 
+  = link_to image_tag('addlist.png'), examiners_new_sport_facility_path, :remote => true

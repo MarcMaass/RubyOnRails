@@ -1,0 +1,6 @@
+.profile_orga_units
+  - @user.organization_units.each do |o|
+    %p
+      = o.name
+      = link_to image_tag("deletehtmlmini.png"), delete_orga_unit_athletes_path(:id => o.id), :method => :delete, :remote => true, 'data-edit' => 'delete_orga_unit', :data => { :confirm => 'Sind Sie sicher?' }
+  %p= link_to image_tag("addlist.png"), orga_unit_form_athletes_url, :remote => true, 'data-edit' => 'add_orga_unit'

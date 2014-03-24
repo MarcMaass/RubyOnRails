@@ -1,0 +1,25 @@
+!!! 5
+%html
+  %head
+    %title Deutsches Sportabzeichen
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    #site
+      %header
+        #top_line
+        #header_pic
+          -# Render HeaderNav after Login
+          = renderHederNavIfLoggedIn          
+        #bottom_line
+      #main
+        %section
+          -# Render MainNav after Login
+          = renderMainNavIfLoggedIn
+          #main_960
+            #content
+              #main_wrapper
+                =yield
+
+ 

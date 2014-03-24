@@ -1,0 +1,20 @@
+-# From for creating a new Organizationunit
+%h1 Verein hinzufügen
+= form_for @organization_unit, :url => district_chiefs_organization_units_path do |f|
+  %h5 Pflichtdaten
+  .field
+    = f.text_field :name, :value => 'Vereinsname'
+  .field
+    = f.text_field :street, :value => 'Straße'
+    = f.text_field :house_number, :value => 'Nr.'
+  .field
+    = f.autocomplete_field :location, autocomplete_location_path, :value => 'PLZ'
+  %h5 Optionales
+  .field
+    = f.text_field :phone_number, :value => 'Telefon'
+  .field
+    = f.text_field :email, :value => 'E-Mail'
+  .field
+    = f.text_field :url, :value => 'Homepage'
+  .actions
+    = f.submit 'speichern'

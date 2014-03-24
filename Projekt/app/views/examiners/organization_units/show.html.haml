@@ -1,0 +1,9 @@
+-# Show Organizationunit Data
+%h1 Vereinsverwaltung
+.orga_unit_data
+  %h4= @organization_unit.name
+  %h5 Adressedaten
+  = render :partial => 'contact_data'
+  %br/
+  %h4 Sportstätten
+  = render :partial => 'sport_facilities'

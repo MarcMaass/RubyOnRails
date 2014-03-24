@@ -1,0 +1,17 @@
+-# Show Data from searching Perfromance
+.results
+  %h1 Leistungen
+  %table
+    %tr
+      %th ID
+      %th Athlet
+      %th Datum
+      %th Disziplin
+      %th Sportstätte
+    - @performances.each do |performance|
+      %tr
+        %td= performance.id
+        %td= performance.athlete.full_name
+        %td= performance.date
+        %td= performance.discipline.name
+        %td= performance.sport_facility.name

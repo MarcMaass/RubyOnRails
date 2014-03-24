@@ -1,0 +1,123 @@
+# Test-Fälle
+Diese Datei kann erweitertert werden, jede Nummer steht für ein Model
+Glossar:
+HABTM - has_and_belongs_to_many (n:m mit einfacher JoinTable)
+
+
+# 1.) Federal State
+> Name darf nicht leer sein!
+	>> 15.12.2012 ok, Validatoren hinzugefügt
+> hat viele Bezirke, das muss geprüft werden!
+	>> 15.12.2012 ok, durch Test geprüft
+
+
+# 2.) Districts
+> Name darf nicht leer sein!
+	>> 16.12.2012 ok, Validatoren hinzugefügt
+> gehört nur zu einem Bundesland
+	>> 16.12.2012 ok, durch Test geprüft
+> hat viele Orte
+	>> 16.12.2012 ok, durch Test geprüft
+
+
+# 3.) Location
+> PLZ und Name darf nicht leer sein
+	>> 16.12.2012 ok, Validatoren eingefügt
+> PLZ darf nur aus 5 Ziffern bestehen
+	>> 16.12.2012 auch ok
+> gehört zu einem Bezirk, eine gleiche PLZ kann nicht zu einem anderen gehören!
+	>> 16.12.2012 auch ok
+
+
+# 4.) OrganizationUnits
+> Es gibt nur eine OrgaUnit pro Ort :-)
+> OrgaUnit hat einen Ort...
+> OrgaUnit hat mehrere Sportler & Examiner & Sportstätten
+> OrgaUnit-Name muss gesetzt sein und eine Straße muss vorliegen
+	>> 17.12.2012: alle Tests erfolgreich
+
+	
+# 5.) SportFacilities
+>> 19.12.2012: Ist gefixt...
+
+
+# 6.) Medal
+> Jede ReqPerformance hat eine Medaille
+> Bepunktung und Sign müssen gesetzt und eindeutung sein
+	>> 20.12.2012: ok... getestet
+
+
+# 7.) Unit
+> Es gibt nur eine Unit Bezeichnung
+> Jede Unit hat kommt einmal in einer Disziplin vor
+
+
+# 8.) AgeRange
+> Jede RequiredPerformance hat ein AgeRange
+> das Mindestalter darf nur einmal vorkommen (vllt. wegen besonderer Altersklassen
+> alle Felder müssen ausgefüllt sein!
+> Es dürfen keine negativen Werte eingetragen sein
+> Min_Age muss stets <= als Max_Age sein
+	>> 20.12.2012 ok doki
+
+	
+# 9.) Category
+> Name muss eindeutig und belegt sein!
+	>> 26.12.2012 alles geklärt
+
+
+# 10.) Sport
+> Name muss eindeutig und belegt sein!
+> hat mehrere Examiner, die diese Sportart prüfen
+	>> 26.12.2012 ok
+
+
+# 11.) Gender
+> Typ muss Unique sein
+> Typ darf nicht null sein
+> Typ darf nur 1 Buchstabe lang sein und m oder f sein!
+	>> 28.12.2012 ok... durch Tests gewährleistet
+	
+
+# 12.) Discipline
+> Unter dem Scope vom Jahr muss der Name Unique sein! (Pro Jahr 1 x 1000 m Lauf... :-) )
+> HABTM TestAppointments (has and belong to many... -> migration erzeugen!!!)
+> Sollte viele RequiredPerformances haben
+> Belong_to sport, category und unit
+	>> 28.12.2012 ok... aber derzeit ist Jahr unique mit dem namens scope... könnte so klappen ;-)
+
+# 13.) RequiredPerformance
+> Fremdschlüssel checken (belongs_to): Discipline, Gender, Medal, AgeRange
+> Value muss numerisch UND >= 0 sein!
+> Value muss gesetzt sein :-)
+	>> 28.12.2012 Oki... Validatoren gesetzt
+
+
+# 14.) Athlete
+> Außer Telefon müssen alle Felder gesetzt sein!
+> email muss unique sein!
+> Passwort muss 8 bis 20 Zeichen lang sein
+> Straße muss gesetzt sein
+> Hausnummer muss Integer sein sein!
+> Gender belongs_to 
+> HABTM mit OrgaUnit
+> belongs_to location
+	>> 28.12.2012 sollte abgedeckt sein :-) 	
+später:
+> Email muss Format einhalten!!!
+> Athlet muss MINDESTALTER erreicht haben!
+> Telefon muss bestimmtes Format haben  (0) 611 - 12345 
+
+
+# 15.) Examiner
+> belongs_to OrgaUnit
+> belongs_to sport
+> Athleten_ID muss eindeutig sein (Vererbung ...)
+
+
+# 16.) DistrictChief
+> Examiner_ID muss eindeutig sein (Vererbung ...)
+
+
+# 17.) Performance
+ 

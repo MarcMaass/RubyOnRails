@@ -1,0 +1,8 @@
+-# Render Nav for Mobile for performance creating
+= renderHeaderMobDataNav
+-# MultiStep From for creating performances
+%div{:"data-role" => "content"}
+  = form_for @performance, :as => :performance, :url => examiners_performances_path do |f|
+    = render "#{@performance.current_step}_step", :f => f
+    %span.nextbutton
+      = f.submit 'Weiter', {:"data-mini"=>"true",:"data-role"=>"button",:"data-inline"=>"true", :"data-theme"=>"a", :"data-icon"=>"arrow-r", :"data-iconpos"=>"right"}

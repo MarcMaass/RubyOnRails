@@ -1,0 +1,19 @@
+-# Show required Performances
+- @required_performances.each do |gender, age_range_to_req_performance|
+  %div{:"class" => "left"}
+    %h4= fancy_gender(gender.id)
+    %table{:"id"=>"hor-minimalist-a"}
+      %thead
+        %tr
+          %th{:"scope"=>"col"} Altersklasse
+          %th{:"scope"=>"col"} Bronze
+          %th{:"scope"=>"col"} Silber
+          %th{:"scope"=>"col"} Gold
+      -# List required_performances from User age
+      %tbody
+        - age_range_to_req_performance.each do |arq|
+          %tr
+            -# Show need Value for Medal
+            %td= arq.first()
+            - arq.last.each do |req_perf|
+              %td= convert_value(req_perf.value, @unit)

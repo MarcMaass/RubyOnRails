@@ -1,0 +1,20 @@
+%h1 Meine Daten
+.profile
+  = render :partial => 'common/profile/profile_image'
+  .textstyldata
+    Name: 
+    = @user.full_name
+    %br/
+    Rolle: #{write_type(@user.type)} 
+    = active(@user)
+    .profile_birth
+      Geburtsdatum: #{I18n.l @user.birthday}
+    %br/
+  %h4 Kontaktdaten
+  = render :partial => 'common/profile/contact_data'
+  %h4 Passwort
+  .textstyldata
+    = render :partial => 'common/profile/password'
+  %br/
+  %h4 Mitgliedschaften
+  = render_organization_units

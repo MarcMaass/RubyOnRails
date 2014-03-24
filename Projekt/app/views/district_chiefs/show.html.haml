@@ -1,0 +1,8 @@
+-# Link to edit Date
+%p#notice= notice
+%p
+  %b District:
+  = @district_chief.district
+= link_to 'Edit', edit_district_chief_path(@district_chief)
+|
+\#{link_to 'Back', district_chiefs_path}

@@ -1,0 +1,19 @@
+.profile_contact
+  .textstyldata
+    %p
+      Straße:
+      #{@user.street} #{@user.house_number}
+    %p
+      Bezirk:
+      #{@user.location.district.name}
+    %p
+      Ort:
+      #{@user.location.postal_code} #{@user.location.name} 
+    %p
+      - if @user.phone
+        Telefon:
+        = @user.phone
+    %p
+      E-Mail:
+      = mail_to @user.email
+  %p= link_to image_tag('edit.png'), address_form_athletes_url, :remote => true, 'data-edit' => 'contact'

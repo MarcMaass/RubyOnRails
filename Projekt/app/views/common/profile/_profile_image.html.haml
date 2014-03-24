@@ -1,0 +1,6 @@
+.picture
+  = image_tag @user.picture.url(:small)
+  %p
+    = link_to image_tag("loadhtml.png"), picture_form_athletes_path, :remote => true, 'data-edit' => 'edit_picture'
+    = link_to image_tag("deletehtml.png"), delete_picture_athletes_path, :method => :delete, :remote => true, :confirm => 'Sind Sie sicher?'
+  

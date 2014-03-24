@@ -1,0 +1,12 @@
+-# Main for LoginDOSB View
+#login_wrapper
+  %h1 Login für Mitglieder
+  - if not flash.now[:error].nil?
+    #error_explanation
+      %h2= flash.now[:error_title]
+      %p= flash.now[:error]
+  = form_for :login, :url => '/login' do |f|
+    = render :partial => 'form', :locals => { :f => f }
+  .button
+    = link_to "Login f\u00fcr Sportler", root_url
+   

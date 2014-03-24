@@ -1,0 +1,7 @@
+:plain
+  var oldData = $('.profile_orga_units').replaceWith('#{ escape_javascript(render :partial => "common/profile/ajax/orga_unit_form")}');
+  $('a[data-edit="add_orga_unit"]').hide();
+  $('#organization_unit_name').focus( function() {
+    $(this).val('');
+    document.getElementById($(this).attr('id')).focus();
+  });

@@ -1,0 +1,12 @@
+-# From for searching Performances for an Athlete
+%h1 Meine Leistungen
+= form_tag athletes_performances_path, :method => :get do
+  .field
+    = label_tag 'year', 'Jahr:'
+    = select_year Date.today, :start_year => start_year, :end_year => end_year
+  .actions
+    = submit_tag 'Anzeigen'
+-# Render result auf searching
+= render :partial => 'list_performances', :locals => {:performances => @performances, :maxima => maxima} 
+  
+  

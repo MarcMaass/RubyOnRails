@@ -1,0 +1,7 @@
+-# Form for seachring a Organizationunit
+= form_for :organization_unit, :url => district_chiefs_search_organization_unit_path, :method => :get, :remote => true do |f|
+  .field
+    -# Seachring a Organizationunit via Ajax
+    = f.autocomplete_field :name, autocomplete_orga_unit_name_path, :value => 'Teile des Vereinsnamens eingeben'
+  .actions
+    = f.submit 'suchen'

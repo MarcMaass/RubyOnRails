@@ -1,0 +1,12 @@
+%div{:"data-role" => "header"}
+  %h1 DOSB
+  %div{:"data-role"=>"navbar"}
+    %ul
+      %li
+        = link_to 'Home', examiners_path, {:"data-iconpos"=>"left", "data-icon"=>"home"}
+      %li
+        = link_to 'Leistungen', examiners_performances_path, {:"data-iconpos"=>"left", "data-icon"=>"back"}
+      %li
+        = link_to 'Logout', logout_path, {:"data-iconpos"=>"left", "data-icon"=>"delete", :method => :delete}
+
+   

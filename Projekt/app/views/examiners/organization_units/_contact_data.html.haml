@@ -1,0 +1,21 @@
+-# Show Homepagelink and E-Mail from an Organizationunit
+.contact_data
+  .textstyldata
+    %p
+      Straße:
+      #{@organization_unit.street} #{@organization_unit.house_number}
+    %p 
+      Ort:
+      #{@organization_unit.location.postal_code} #{@organization_unit.location.name} 
+    %p
+      - if @organization_unit.phone_number
+        Telefon:
+        = @organization_unit.phone_number
+    %p
+      Homepage:
+      = link_to @organization_unit.url
+    %p
+      - if @organization_unit.email
+        E-Mail:
+        = mail_to @organization_unit.email
+  = link_to image_tag('edit.png'), examiners_edit_organization_unit_path(@organization_unit), :remote => true, 'data-edit' => 'edit_contact'

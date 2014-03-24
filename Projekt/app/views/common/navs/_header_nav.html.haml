@@ -1,0 +1,6 @@
+#topnav
+  %nav.home
+    = link_to image_tag('home.png'), application_home_url
+    // hier ein search field...
+  %nav.help_logout
+    = link_to image_tag('logout.png'), logout_path, :method => :delete

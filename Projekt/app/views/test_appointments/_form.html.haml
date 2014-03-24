@@ -1,0 +1,28 @@
+-# Show Test_Appointments Data in Form to change them
+= form_for(@test_appointment) do |f|
+  - if @test_appointment.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@test_appointment.errors.count, "error")
+        prohibited this test_appointment from being saved:
+      %ul
+        - @test_appointment.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :date
+    %br/
+    = f.text_field :date
+  .field
+    = f.label :time
+    %br/
+    = f.text_field :time
+  .field
+    = f.label :info_text
+    %br/
+    = f.text_field :info_text
+  .field
+    = f.label :cancelled
+    %br/
+    = f.check_box :cancelled
+  .actions
+    = f.submit

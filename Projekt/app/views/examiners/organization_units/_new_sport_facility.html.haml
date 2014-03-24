@@ -1,0 +1,17 @@
+-# From for creating a new Sportfacility 
+%h5 Neue Sporstätte
+= form_for @sport_facility, :url => examiners_create_sport_facility_path(@organization_unit), :method => :post, :remote => true do |f|
+  .field
+    = f.label :name, 'Name'
+    = f.autocomplete_field :name, autocomplete_sport_faci_name_path
+  .field
+    = f.label :street, 'Straße, Hausnummer:'
+    = f.text_field :street 
+    = f.text_field :house_number
+  .field
+    = fields_for :location do |loc|
+      = f.label :location, 'PLZ, Ort:'
+      = loc.autocomplete_field :postal_code_and_name, autocomplete_location_path 
+  .actions
+    = f.submit 'Speichern'
+    = link_to image_tag('abbrechen.png'), '', 'data-edit' => 'abort_new_sport_facility'

@@ -1,0 +1,23 @@
+-# Show List of exsiting Test Appointment to Show, Edit or Destroy them
+%h1 Listing test_appointments
+%table
+  %tr
+    %th Date
+    %th Time
+    %th Info text
+    %th Cancelled
+    %th
+    %th
+    %th
+  - @test_appointments.each do |test_appointment|
+    %tr
+      %td= test_appointment.date
+      %td= test_appointment.time
+      %td= test_appointment.info_text
+      %td= test_appointment.cancelled
+      %td= link_to 'Show', test_appointment
+      %td= link_to 'Edit', edit_test_appointment_path(test_appointment)
+      %td= link_to 'Destroy', test_appointment, method: :delete
+%br/
+-# Link to create a new Test Appointmant
+= link_to 'New Test appointment', new_test_appointment_path

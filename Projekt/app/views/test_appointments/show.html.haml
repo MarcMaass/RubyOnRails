@@ -1,0 +1,17 @@
+-# Show Test Appointment Data
+%p#notice= notice
+%p
+  %b Date:
+  = @test_appointment.date
+%p
+  %b Time:
+  = @test_appointment.time
+%p
+  %b Info text:
+  = @test_appointment.info_text
+%p
+  %b Cancelled:
+  = @test_appointment.cancelled
+= link_to 'Edit', edit_test_appointment_path(@test_appointment)
+|
+\#{link_to 'Back', test_appointments_path}

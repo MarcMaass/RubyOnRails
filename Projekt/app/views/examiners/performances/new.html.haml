@@ -1,0 +1,26 @@
+-# From for creating new performances for x Athletes
+%h1 Disziplin eintragen
+= form_for @performance, :as => :performance, :url => examiners_performances_path do |f|
+  %h5 Bitte gewünschte Disziplin wählen
+  .notice
+    %p Falls Sie die Disziplin ändern, werden alle Sportler entfernt!
+  .field
+    -# Show all Discipline from chosen Category
+    = f.collection_select(:discipline, disciplines, :id, :get_discipline_with_gender)
+  %h5 Datum
+  .field
+    -# Show Date (Day,Month,Year)
+    = f.date_select :date, :start_year => Date.today.year, :end_year => Date.today.year
+  %h5 Sportstätte
+  .field
+    -# Field search Sport Facility
+    = f.autocomplete_field :sport_facility, autocomplete_sport_faci_name_path
+  %h5 Sportler
+  -# Add a new Athlete to from
+  = link_to image_tag('sportlerhinzufuegen.png'), athlete_form_examiners_performances_path, :remote => true, 'data-add' => 'athlete'
+  = link_to image_tag('alleloeschen.png'), '#', 'data-remove' => 'all_athletes'
+  -# Class where added Athlete would be insert
+  .athletes_performances
+  .actions
+    = f.submit 'Speichern'
+  = link_to 'zurück', index_new_examiners_performances_path 

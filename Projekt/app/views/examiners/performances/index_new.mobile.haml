@@ -1,0 +1,10 @@
+-# Render Moblie Menu Nav
+= renderHederNavIfLoggedIn
+%div{:"data-role" => "content"}
+  %ul{:"data-role"=>"listview", :"data-divider-theme"=>"a", :"data-inset"=>"true"}
+    %li{:"data-role"=>"list-divider", :"role"=>"heading"}
+      Kategorie
+    -# List all Sport Categories
+    - CATEGORIES.each do |category, category_ger|
+      %li{:"data-theme"=>"a"}
+        = link_to image_tag(category_ger+".png") + ("<span class=\"listtext\">"+category_ger+"</span>").html_safe, new_examiners_performances_path(category) 

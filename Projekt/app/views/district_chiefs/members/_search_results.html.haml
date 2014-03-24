@@ -1,0 +1,10 @@
+-# Show result from searching a DOSB Member
+.results
+  %h3 Suchergebnisse
+  - unless @members.empty?
+    %p= link_to 'Suchergebnisse löschen', '#', 'data-remove' => 'members'
+    - @members.each do |member|
+      = render :partial => 'member_info', :locals => {:member => member}
+      = options(member)
+  - else
+    %p Es konnten keine Ergebnisse gefunden werden!

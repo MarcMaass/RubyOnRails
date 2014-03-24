@@ -1,0 +1,2 @@
+class DistrictChief < Athlete
+end

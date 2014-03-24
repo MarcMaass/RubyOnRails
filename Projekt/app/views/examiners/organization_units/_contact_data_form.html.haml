@@ -1,0 +1,22 @@
+-# From for adding a Organizationunit
+= form_for @organization_unit, :url => examiners_update_organization_unit_path(@organization_unit), :method => :put, :remote => true do |f|
+  .field
+    = f.label :street, 'Straße, Hausnummer:'
+    = f.text_field :street 
+    = f.text_field :house_number
+  .field
+    = fields_for @organization_unit.location do |loc|
+      = f.label :location, 'PLZ, Ort:'
+      = loc.autocomplete_field :postal_code_and_name, autocomplete_location_path 
+  .field
+    = f.label :phone_number, 'Telefon:'
+    = f.text_field :phone_number
+  .field
+    = f.label :email, 'E-Mail:'
+    = f.email_field :email
+  .field
+    = f.label :url, 'Homepage:'
+    = f.text_field :url
+  .actions
+    = f.submit 'speichern'
+    = link_to 'Abbrechen', '', 'data-edit' => 'abort_contact'

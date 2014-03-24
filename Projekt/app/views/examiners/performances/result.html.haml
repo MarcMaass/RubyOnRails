@@ -1,0 +1,27 @@
+-# Show the created performances after saving them
+%h1 Leistungen erfassen
+.notice
+  %p Vielen Dank! Folgende Informationen sind eingegangen:
+%h5 Disziplin
+%p= performance.discipline.name
+%h5 Datum und Ort
+%p= l(performance.date)
+%p
+  = performance.sport_facility.name
+  %br
+  = performance.sport_facility.street
+  = performance.sport_facility.house_number
+  %br
+  = performance.sport_facility.location.postal_code
+  = performance.sport_facility.location.name
+.success
+  %h5 Die oben genannten Daten wurden für folgende Athleten erfasst:
+  - flash[:success].each do |full_name|
+    %p= full_name
+.error
+  %h5 Es gab einen Fehler bei den folgenden Athleten.
+  - flash[:fail].each do |athlete_to_message|
+    - athlete_to_message.each do |full_name, messages|
+      %p= full_name
+      
+= link_to 'weitere Leistungen erfassen', examiners_performances_path

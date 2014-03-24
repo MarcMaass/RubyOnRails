@@ -1,0 +1,12 @@
+-# Insert a new Athlete
+= fields_for :athlete do |a|
+  .field
+    -# Searching for a Athlete
+    %div{:"data-role"=>"fieldcontain"}
+      %label{:"for"=>"name"}
+        Sportler
+      = a.autocomplete_field '0', autocomplete_athlete_email_path, {:"type"=>"text"}
+      -# Value Field for Perfromance
+    = getUnitFormElements unit_id
+    = link_to 'löschen', '#', {:"data-remove" => "athlete", :"data-mini"=>"true",:"data-role"=>"button",:"data-inline"=>"true", :"data-theme"=>"a", :"data-icon"=>"delete", :"data-iconpos"=>"right"}
+    %hr                       

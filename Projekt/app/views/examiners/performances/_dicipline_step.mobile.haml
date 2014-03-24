@@ -1,0 +1,11 @@
+-# Firststep from MulitFrom
+%h5 Bitte gewünschte Disziplin wählen
+-# Show all Discipline from chosen Category
+= f.collection_select(:discipline, @disciplines, :id, :get_discipline_with_gender)
+%h5 Datum
+-# Show Date (Day,Month,Year)
+= f.date_select :date, :start_year => Date.today.year, :end_year => Date.today.year
+%h5 Sportstätte
+-# Field search Sport Facility
+= f.autocomplete_field :sport_facility, autocomplete_sport_faci_name_path, {:"type"=>"search"}
+%h5

@@ -1,0 +1,5 @@
+-# Show Value Field
+= fields_for :athlete_performance do |ap|
+  %span
+    Zeit (Sek,MilSek)
+    = ap.text_field '0', {:"type"=>"number"}

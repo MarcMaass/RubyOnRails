@@ -1,0 +1,31 @@
+-# Site for accept or reject Performances from Athletes
+%h1 Leistungverwaltung
+%p Bezirk: #{@district.name}
+- unless @performances.empty?
+  %table
+    %tr
+      %th ID
+      %th Optionen
+      %th Name
+      %th Disziplin
+      %th Wert
+      %th Datum
+      %th Ort
+      %th Prüfer
+    - @performances.each do |performance|
+      %tr{:id => "performance_#{performance.id}"}
+        %td= performance.id
+        %td{:class => "options_#{performance.id}"}
+          = link_to 'bestätigen', district_chiefs_performance_path(performance, :choice => 'accept'), :method => :put, :remote => true, :confirm => 'Sind Sie sicher?'
+          = link_to 'ablehnen', district_chiefs_performance_path(performance, :choice => 'reject'), :method => :put, :remote => true, :confirm => 'Sind Sie Sicher?'
+        %td= performance.athlete.full_name
+        %td= performance.discipline.name
+        %td #{convert_value(performance.value, performance.discipline.unit)} #{performance.discipline.unit.name}
+        %td= l(performance.date)
+        %td #{performance.sport_facility.name}
+        %td= performance.examiner.full_name
+      %tr
+        %td{:colspan => 6}
+        %td #{performance.sport_facility.location.name}
+- else
+  %p Keine Prüfungen vorhanden!
